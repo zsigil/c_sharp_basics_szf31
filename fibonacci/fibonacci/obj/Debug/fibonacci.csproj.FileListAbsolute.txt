@@ -1,0 +1,7 @@
+F:\szf31\csharp\csharp_programjaim\fibonacci\fibonacci\bin\Debug\fibonacci.exe.config
+F:\szf31\csharp\csharp_programjaim\fibonacci\fibonacci\bin\Debug\fibonacci.exe
+F:\szf31\csharp\csharp_programjaim\fibonacci\fibonacci\bin\Debug\fibonacci.pdb
+F:\szf31\csharp\csharp_programjaim\fibonacci\fibonacci\obj\Debug\fibonacci.csprojAssemblyReference.cache
+F:\szf31\csharp\csharp_programjaim\fibonacci\fibonacci\obj\Debug\fibonacci.csproj.CoreCompileInputs.cache
+F:\szf31\csharp\csharp_programjaim\fibonacci\fibonacci\obj\Debug\fibonacci.exe
+F:\szf31\csharp\csharp_programjaim\fibonacci\fibonacci\obj\Debug\fibonacci.pdb

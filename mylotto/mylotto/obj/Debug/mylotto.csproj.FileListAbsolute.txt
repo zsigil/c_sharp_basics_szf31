@@ -1,0 +1,7 @@
+F:\szf31\csharp\csharp_programjaim\mylotto\mylotto\bin\Debug\mylotto.exe.config
+F:\szf31\csharp\csharp_programjaim\mylotto\mylotto\bin\Debug\mylotto.exe
+F:\szf31\csharp\csharp_programjaim\mylotto\mylotto\bin\Debug\mylotto.pdb
+F:\szf31\csharp\csharp_programjaim\mylotto\mylotto\obj\Debug\mylotto.csprojAssemblyReference.cache
+F:\szf31\csharp\csharp_programjaim\mylotto\mylotto\obj\Debug\mylotto.csproj.CoreCompileInputs.cache
+F:\szf31\csharp\csharp_programjaim\mylotto\mylotto\obj\Debug\mylotto.exe
+F:\szf31\csharp\csharp_programjaim\mylotto\mylotto\obj\Debug\mylotto.pdb
