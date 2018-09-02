@@ -44,6 +44,7 @@ namespace ablak2
 
         private void megnyitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //ha nincs activechild
             if (this.ActiveMdiChild == null)
             {
                 Form2 uj_ablak = new Form2();
@@ -62,9 +63,11 @@ namespace ablak2
                 }
             }
 
+            //ha van már activechild
             else
             {
                 DialogResult valasz = MessageBox.Show("A fájlt új ablakban nyissuk meg?", "Megnyitás", MessageBoxButtons.YesNoCancel);
+                //van már, de mégis új ablakot akarok
                 if (valasz == DialogResult.Yes)
                 {
                     Form2 uj_ablak = new Form2();
@@ -77,12 +80,28 @@ namespace ablak2
                         uj_ablak.Text = openFileDialog1.FileName;
                     }
                 }
-                else
+                //a már nyitott aktív ablakban akarom - "nem"
+                if (valasz == DialogResult.No)
                 {
                     //HW
                     //utolsó aktív ablakban legyen a megnyitott fájl tartalma
+                    
+                    Form2 nyitott_ablak = (Form2)ActiveMdiChild;
+                    nyitott_ablak.Show();
+                    nyitott_ablak.MdiParent = this;
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        //a form2 designerben publicra javítani a richtextbox1 példányát
+                        nyitott_ablak.richTextBox1.LoadFile(openFileDialog1.FileName);
+                        nyitott_ablak.Text = openFileDialog1.FileName;
+                    }
 
 
+                }
+                //dialogbox "cancel"
+                else  
+                {
+                    this.openFileDialog1.Dispose();
                 }
             }
 
