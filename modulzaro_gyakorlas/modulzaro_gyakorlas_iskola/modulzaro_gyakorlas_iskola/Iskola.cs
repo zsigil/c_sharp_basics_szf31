@@ -44,7 +44,14 @@ namespace modulzaro_gyakorlas_iskola
             }
             set
             {
-                nev = value;
+                if (value.Length <= 50) {
+                    nev = value;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+                
             }
         }
 
