@@ -59,10 +59,26 @@ INSERT INTO iskolatanulo values(5, 'abcdef5', 'abc5');
 
 
 
-3. OOP adatbáziskezelés: minden tábla egy osztály, minden oszlop private adattag lesz(kisbetûvel) (amihez írunk gettert meg settert - az publikuslesz, nagybetûs!)
+3. OOP adatbáziskezelés: minden tábla egy osztály(public class), minden oszlop private adattag lesz(kisbetûvel) (amihez írunk gettert meg settert - az publikuslesz, nagybetûs!)
 	
 solution expl - jobb egér - add- class -elnevezni-add -> megnyílik, ide dolgozunk
 
 
 (server explorerben látszik a tábla, table definition mutatja, mi milyen típus)
 
+-primary key-nél setnél ellenõrizni kell, h nincs még egy olyan! - nálam ez az azonosító.
+
+- mivel példányosítani akarjuk, kell szegénynek konstruktor (egy, amiben az összes cucc benne van, meg egy, amibõl kimarad a primary key, a módosításokhoz)
+
+(ezt megcsináljuk az iskola táblánál, és a tanuló táblánál is)
+
+
+4. statikus adatbáziskezelõ osztály létrehozása  - (add class)
+
+-public static class
++using System.Data.SqlClient
++using System.Windows.Forms 
+
+2 privát adattag: SqlConnection, SqlCommand
+konstruktor : statikus!:
+	new SqlConnection (connection stringet kiszedni a datasource-ból!)

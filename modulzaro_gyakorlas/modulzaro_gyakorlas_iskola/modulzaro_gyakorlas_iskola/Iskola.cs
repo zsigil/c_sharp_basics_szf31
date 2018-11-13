@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace modulzaro_gyakorlas_iskola
 {
-    class Iskola
+    public class Iskola
     {
         //privát adattagok
         string azon;
