@@ -74,5 +74,53 @@ namespace modulzaro_gyakorlas_iskola
             }
             return eredmeny;
         }
+
+        public static void Uj_iskola(Iskola uj_iskola)
+        {
+            try
+            {
+                //paraméteres sql commandot hozunk létre
+                comm = new SqlCommand("insert into [Iskola] ([isk_azon], [isk_neve], [isk_varos], [isk_irszam], [isk_utca], [isk_tel]) values (@azon, @nev, @varos, @irszam, @utca, @tel)", conn);
+                comm.Parameters.AddWithValue("@azon", uj_iskola.Azon);
+                comm.Parameters.AddWithValue("@nev", uj_iskola.Nev);
+                comm.Parameters.AddWithValue("@varos", uj_iskola.Varos);
+                comm.Parameters.AddWithValue("@irszam", uj_iskola.Irszam);
+                comm.Parameters.AddWithValue("@utca", uj_iskola.Utca);
+                comm.Parameters.AddWithValue("@tel", uj_iskola.Telszam);
+                comm.ExecuteNonQuery(); // command lefuttatása 
+            }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void Modosit_iskola(Iskola modositando)
+        {
+            try
+            {
+                //paraméteres sql commandot hozunk létre
+                comm = new SqlCommand("update [Iskola] set [isk_neve]=@nev, [isk_varos]=@varos, [isk_irszam]=@irszam, [isk_utca]=@utca, [isk_tel]=@tel where [isk_azon]=@azon", conn);
+                comm.Parameters.AddWithValue("@azon", modositando.Azon);
+                comm.Parameters.AddWithValue("@nev", modositando.Nev);
+                comm.Parameters.AddWithValue("@varos", modositando.Varos);
+                comm.Parameters.AddWithValue("@irszam", modositando.Irszam);
+                comm.Parameters.AddWithValue("@utca", modositando.Utca);
+                comm.Parameters.AddWithValue("@tel", modositando.Telszam);
+                comm.ExecuteNonQuery(); // command lefuttatása 
+            }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+        }
+
+
+
+
     }
 }

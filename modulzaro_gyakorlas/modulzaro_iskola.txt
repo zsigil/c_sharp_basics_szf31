@@ -74,11 +74,32 @@ solution expl - jobb egér - add- class -elnevezni-add -> megnyílik, ide dolgozun
 
 
 4. statikus adatbáziskezelõ osztály létrehozása  - (add class)
+https://github.com/zsigil/c_sharp_basics_szf31/blob/master/20181028/oop_db_kezeles/oop_db_kezeles/Adatbaziskezelo.cs
 
 -public static class
 +using System.Data.SqlClient
 +using System.Windows.Forms 
 
-2 privát adattag: SqlConnection, SqlCommand
-konstruktor : statikus!:
-	new SqlConnection (connection stringet kiszedni a datasource-ból!)
+2 privát adattag: static SqlConnection conn, static SqlCommand comm;
+konstruktor : statikus!: try/catch
+	conn =new SqlConnection (connection stringet kiszedni a datasource-ból! add new datasource-nál)
+	conn.Open()
+
+konstruktoron kívül kapcsolat bezárása public static void metódussal
+utána adatbáziskezeléshez metódusok(public static void)
+
+adatbázis beolvasása - listába, readerrel(public static List<Iskola>)
+**********************************
+listview - Form1.cs
+https://github.com/zsigil/c_sharp_basics_szf31/blob/master/20181028/oop_db_kezeles/oop_db_kezeles/Form1.cs
+form 1 loadban beolvasni az adatbázist, listview megjelenítést meghívni
+külön function a különbözõ megjelenítésekre, a partial class-ban(pl. listview megjelenítés) -> mûködnie kell
+*********************************
+adatbáziskezelo.cs -ben létrehozzuk a metódusokat  az új iskola létrehozásához, módosításához(lásd könyves példa,
+csak Iskola osztállyal)
+
+*****
+Form1.design-ban 6 label, 6 textbox az iskolához
+gomb az új iskolának : eseménykezelõ ->
+
+

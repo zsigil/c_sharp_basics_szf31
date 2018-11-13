@@ -12,9 +12,10 @@ namespace modulzaro_gyakorlas_iskola
 {
     public partial class Form1 : Form
     {
-
+        // létrehozzuk őket, hogy tudjuk használni később
         List<Iskola> iskolak;
         List<Tanulo> tanulok;
+        Iskola iskola;
 
         public Form1()
         {
@@ -65,6 +66,13 @@ namespace modulzaro_gyakorlas_iskola
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //új iskola létrehozása
+ 
+            iskola = new Iskola(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+            Adatbaziskezelo.Uj_iskola(iskola); //csak adatbázisba viszi be
+
+            iskolak.Add(iskola); //a listánkba is berakja
+            listview_megjelenit_iskola();
 
         }
 
