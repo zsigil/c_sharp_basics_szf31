@@ -103,3 +103,15 @@ Form1.design-ban 6 label, 6 textbox az iskolához
 gomb az új iskolának : eseménykezelõ ->
 
 
+***************************
+unittest : tesztelni kívánt metódus: legyen benne "throw new exception", ezt fogjuk elkapni; jobb egérgomb metódus nevén:
+create unit tests
+https://github.com/zsigil/c_sharp_basics_szf31/blob/master/20181028/oop_db_kezeles/oop_db_kezelesTests/Konyv1Tests.cs
+
+**************************
+iskola adatainak módosítása
+-adatbáziskezelõben már megvan a metódus
+-gomb kell hozzá, eseménykezelõ->
+módosít: elõbb kiszedni a listviewbõl, hogy melyiket
+
+

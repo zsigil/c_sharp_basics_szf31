@@ -81,5 +81,17 @@ namespace modulzaro_gyakorlas_iskola
             iskolak = Adatbaziskezelo.Isk_beolvas();
             listview_megjelenit_iskola();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var melyikindex = listView1.Items.IndexOf(listView1.SelectedItems[0]);
+            var melyikazon = iskolak[melyikindex].Azon;
+            iskola = new Iskola(melyikazon, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+            Adatbaziskezelo.Modosit_iskola(iskola);
+
+            iskolak.RemoveAt(melyikindex);
+            iskolak.Add(iskola);
+            listview_megjelenit_iskola();
+        }
     }
 }
