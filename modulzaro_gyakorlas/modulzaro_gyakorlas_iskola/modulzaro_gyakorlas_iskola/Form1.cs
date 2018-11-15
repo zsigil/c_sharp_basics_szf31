@@ -123,6 +123,11 @@ namespace modulzaro_gyakorlas_iskola
             }
         }
 
+        float osztondij_szamolasa(Tanulo tanulo)
+        {
+            return tanulo.Atlag * 1000;
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -147,11 +152,13 @@ namespace modulzaro_gyakorlas_iskola
 
             tanulok = Adatbaziskezelo.Tan_beolvas();
             datagridview_megjelenit_tanulo();
-            listview_megjelenit_tanulo();
+            //listview_megjelenit_tanulo();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            //iskola módosítása 
             var melyikindex = listView1.Items.IndexOf(listView1.SelectedItems[0]);
             var melyikazon = iskolak[melyikindex].Azon;
             iskola = new Iskola(melyikazon, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
@@ -160,6 +167,55 @@ namespace modulzaro_gyakorlas_iskola
             iskolak.RemoveAt(melyikindex);
             iskolak.Add(iskola);
             listview_megjelenit_iskola();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //uj tanulo letrehozasa
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            tanulo = new Tanulo(textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text, textBox12.Text, textBox13.Text, textBox14.Text, float.Parse(textBox15.Text));
+            Adatbaziskezelo.Uj_tanulo(tanulo); //csak adatbázisba viszi be
+
+            tanulok.Add(tanulo); //a listánkba is berakja
+            datagridview_megjelenit_tanulo();
+        }
+
+        //tanulo módosítása
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var melyikindex = dataGridView1.CurrentCell.RowIndex;
+            var melyikazon = tanulok[melyikindex].Azon;
+            tanulo = new Tanulo(melyikazon, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text, textBox12.Text, textBox13.Text, textBox14.Text, float.Parse(textBox15.Text));
+            Adatbaziskezelo.Modosit_tanulo(tanulo);
+
+            tanulok.RemoveAt(melyikindex);
+            tanulok.Add(tanulo);
+            datagridview_megjelenit_tanulo();
+
+        }
+
+        //tanulo törlése
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var melyikindex = dataGridView1.CurrentCell.RowIndex;
+            tanulo = tanulok[melyikindex];
+            Adatbaziskezelo.Torol_tanulo(tanulo);
+            tanulok.RemoveAt(melyikindex);
+            datagridview_megjelenit_tanulo();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var melyikindex = dataGridView1.CurrentCell.RowIndex;
+            tanulo = tanulok[melyikindex];
+
+            float osztondij = osztondij_szamolasa(tanulo);
+            textBox16.Text = osztondij.ToString();
         }
     }
 }

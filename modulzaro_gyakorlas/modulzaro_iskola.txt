@@ -104,7 +104,7 @@ gomb az új iskolának : eseménykezelõ ->
 
 
 ***************************
-unittest : tesztelni kívánt metódus: legyen benne "throw new exception", ezt fogjuk elkapni; jobb egérgomb metódus nevén:
+UNITTEST : tesztelni kívánt metódus: legyen benne "throw new exception", ezt fogjuk elkapni; jobb egérgomb metódus nevén:
 create unit tests
 https://github.com/zsigil/c_sharp_basics_szf31/blob/master/20181028/oop_db_kezeles/oop_db_kezelesTests/Konyv1Tests.cs
 
@@ -126,3 +126,9 @@ tanuló datagrid készítése + rögzít, töröl, módosít
 -> datagridview-t formra ráhúzni
 -> form1.cs -> form loadnál lista behívása, datagridview
 https://github.com/zsigil/c_sharp_basics_szf31/blob/master/20181028/oop_db_kezeles/oop_db_kezeles/Form1.cs
+- labelek, textboxok , gombok az új tanulóhoz, ill módosításhoz, törléshez, ua, mint iskola
+
+*******************************
+
+ösztöndíj számolása:
+új button, kijelzés textboxban
