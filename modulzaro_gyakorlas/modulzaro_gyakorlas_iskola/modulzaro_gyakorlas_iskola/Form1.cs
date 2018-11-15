@@ -128,6 +128,14 @@ namespace modulzaro_gyakorlas_iskola
             return tanulo.Atlag * 1000;
         }
 
+        int eletkor_szamitasa(Tanulo tanulo)
+        {
+            string eletkorstring = tanulo.Szul;
+            string[] eletkorarr = eletkorstring.Split('-');
+            int eletkor = 2018 - int.Parse(eletkorarr[0]);
+            return eletkor;
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -216,6 +224,19 @@ namespace modulzaro_gyakorlas_iskola
 
             float osztondij = osztondij_szamolasa(tanulo);
             textBox16.Text = osztondij.ToString();
+        }
+
+        
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //tanulo életkora
+            var melyikindex = dataGridView1.CurrentCell.RowIndex;
+            tanulo = tanulok[melyikindex];
+
+            textBox17.Text = eletkor_szamitasa(tanulo).ToString();
+
+ 
+
         }
     }
 }

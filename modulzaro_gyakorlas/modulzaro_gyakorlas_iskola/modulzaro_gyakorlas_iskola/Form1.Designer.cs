@@ -68,6 +68,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox16 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox17 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,9 +238,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(252, 242);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 17);
+            this.label9.Size = new System.Drawing.Size(98, 17);
             this.label9.TabIndex = 19;
-            this.label9.Text = "szul";
+            this.label9.Text = "szul(kotojellel)";
             // 
             // label10
             // 
@@ -311,7 +313,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(315, 236);
+            this.textBox9.Location = new System.Drawing.Point(356, 239);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 22);
             this.textBox9.TabIndex = 28;
@@ -390,7 +392,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(626, 369);
+            this.button6.Location = new System.Drawing.Point(626, 350);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(80, 41);
             this.button6.TabIndex = 38;
@@ -400,16 +402,35 @@
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(712, 382);
+            this.textBox16.Location = new System.Drawing.Point(712, 359);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(117, 22);
             this.textBox16.TabIndex = 39;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(626, 407);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 47);
+            this.button7.TabIndex = 40;
+            this.button7.Text = "tan.eletkora";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(712, 413);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(117, 22);
+            this.textBox17.TabIndex = 41;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 521);
+            this.Controls.Add(this.textBox17);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -501,6 +522,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox textBox17;
     }
 }
 
