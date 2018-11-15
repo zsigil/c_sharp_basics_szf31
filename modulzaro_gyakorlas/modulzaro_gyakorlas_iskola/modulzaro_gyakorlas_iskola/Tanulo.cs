@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace modulzaro_gyakorlas_iskola
 {
-    class Tanulo
+    public class Tanulo
     {
         string azon;
         string nev;

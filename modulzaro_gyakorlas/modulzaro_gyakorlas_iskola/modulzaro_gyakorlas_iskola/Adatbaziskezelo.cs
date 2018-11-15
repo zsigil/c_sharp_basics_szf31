@@ -40,6 +40,9 @@ namespace modulzaro_gyakorlas_iskola
             }
         }
 
+
+        //ISKOLA
+
         public static List<Iskola> Isk_beolvas()
         {
             List<Iskola> eredmeny = new List<Iskola>();
@@ -119,8 +122,112 @@ namespace modulzaro_gyakorlas_iskola
             }
         }
 
+        //TANULÓK
+
+        public static List<Tanulo> Tan_beolvas()
+        {
+            List<Tanulo> eredmeny = new List<Tanulo>();
+
+            try
+            {
+                string sql = "select * from tanulo";
+                comm = new SqlCommand(sql, conn);
+
+                SqlDataReader reader = comm.ExecuteReader();
 
 
+                //tábla sorainak beolvasása(ha elfogy, false-t dob vissza)
+                while (reader.Read())
+                {
+                    eredmeny.Add(new Tanulo(
+                        reader["tan_azon"].ToString(),
+                        reader["tan_nev"].ToString(),
+                        reader["tan_szul"].ToString(),
+                        reader["tan_varos"].ToString(),
+                        reader["tan_irszam"].ToString(),
+                        reader["tan_utca"].ToString(),
+                        reader["tan_anyjaneve"].ToString(),
+                        reader["tan_oszt"].ToString(),
+                        float.Parse(reader["tan_atlag"].ToString())
+        
+                        ));
+                }
 
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            return eredmeny;
+        }
+
+        public static void Uj_tanulo(Tanulo uj_tanulo)
+        {
+            try
+            {
+                //paraméteres sql commandot hozunk létre
+                comm = new SqlCommand("insert into [tanulo] ([tan_azon], [tan_nev], [tan_szul], [tan_varos], [tan_irszam], [tan_utca], [tan_anyjaneve], [tan_oszt], [tan_atlag]) values (@azon, @nev, @szul, @varos, @irszam, @utca, @aneve, @oszt, @atlag)", conn);
+                comm.Parameters.AddWithValue("@azon", uj_tanulo.Azon);
+                comm.Parameters.AddWithValue("@nev", uj_tanulo.Nev);
+                comm.Parameters.AddWithValue("@szul", uj_tanulo.Szul);
+                comm.Parameters.AddWithValue("@varos", uj_tanulo.Varos);
+                comm.Parameters.AddWithValue("@irszam", uj_tanulo.Irszam);
+                comm.Parameters.AddWithValue("@utca", uj_tanulo.Utca);
+                comm.Parameters.AddWithValue("@aneve", uj_tanulo.Anyjaneve);
+                comm.Parameters.AddWithValue("@oszt", uj_tanulo.Osztaly);
+                comm.Parameters.AddWithValue("@atlag", uj_tanulo.Atlag);
+                comm.ExecuteNonQuery(); // command lefuttatása 
+            }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void Modosit_tanulo(Tanulo modositando)
+        {
+
+            try
+            {
+                //paraméteres sql commandot hozunk létre
+                comm = new SqlCommand("update [tanulo] set [tan_nev]=@nev, [tan_szul]=@szul, [tan_varos]=@varos, [tan_irszam]=@irszam, [tan_utca]=@utca, [tan_anyjaneve]=@aneve, [tan_oszt]=@oszt, [tan_atlag]=@atlag where [tan_azon]=@azon", conn);
+                comm.Parameters.AddWithValue("@azon", modositando.Azon);
+                comm.Parameters.AddWithValue("@nev", modositando.Nev);
+                comm.Parameters.AddWithValue("@szul", modositando.Szul);
+                comm.Parameters.AddWithValue("@varos", modositando.Varos);
+                comm.Parameters.AddWithValue("@irszam", modositando.Irszam);
+                comm.Parameters.AddWithValue("@utca", modositando.Utca);
+                comm.Parameters.AddWithValue("@aneve", modositando.Anyjaneve);
+                comm.Parameters.AddWithValue("@oszt", modositando.Osztaly);
+                comm.Parameters.AddWithValue("@atlag", modositando.Atlag);
+                comm.ExecuteNonQuery(); // command lefuttatása 
+            }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public static void Torol_tanulo(Tanulo torlendo)
+        {
+            try
+            {
+                comm = new SqlCommand("delete from [tanulo] where [tan_azon]=@azon", conn);
+                comm.Parameters.AddWithValue("@azon", torlendo.Azon);
+                comm.ExecuteNonQuery();
+            }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+        }
     }
 }

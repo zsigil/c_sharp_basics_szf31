@@ -16,6 +16,7 @@ namespace modulzaro_gyakorlas_iskola
         List<Iskola> iskolak;
         List<Tanulo> tanulok;
         Iskola iskola;
+        Tanulo tanulo;
 
         public Form1()
         {
@@ -58,7 +59,70 @@ namespace modulzaro_gyakorlas_iskola
 
         }
 
-        
+        void listview_megjelenit_tanulo()
+        {
+            listView2.View = View.Details;
+            listView2.Items.Clear();
+            var properties = typeof(Tanulo).GetProperties();
+
+            //oszlopok létrehozása(ha nincsenek)
+            if (listView2.Columns.Count == 0)
+            {
+                foreach (var item in properties)
+                {
+                    listView2.Columns.Add(item.Name); //oszlopnév a property neve lesz
+                }
+
+            }
+
+            //töltsük fel sorokkal
+
+
+
+            foreach (var item in tanulok) //egy elem egy sor
+            {
+                //string vektor a mezők értékeinek tárolásához
+                //annyi eleme lesz a stringnek, ahány property van a könyv osztályban
+                string[] adatok = new string[properties.Length];
+                for (int i = 0; i < adatok.Length; i++)
+                {
+                    //feltöltjük a mezők értékeivel a vektort
+                    adatok[i] = properties[i].GetValue(item).ToString();
+                }
+
+                listView2.Items.Add(new ListViewItem(adatok));
+            }
+
+        }
+
+        void datagridview_megjelenit_tanulo()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.Rows.Clear();
+            var properties = typeof(Tanulo).GetProperties();
+
+            if (dataGridView1.Columns.Count == 0)
+            {
+                foreach (var item in properties)
+                {
+                    dataGridView1.Columns.Add(item.Name, item.Name); //oszlopnév a property neve lesz
+                }
+            }
+
+            //sorok hozzáadása
+            foreach (var item in tanulok)
+            {
+                dataGridView1.Rows.Add();//üres sor hozzáadása először
+
+                //egy soron belül az oszlopok(mezők) hozzáadása
+                for (int i = 0; i < properties.Length; i++)
+                {
+                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[i].Value = properties[i].GetValue(item);
+                }
+            }
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -80,6 +144,10 @@ namespace modulzaro_gyakorlas_iskola
         {
             iskolak = Adatbaziskezelo.Isk_beolvas();
             listview_megjelenit_iskola();
+
+            tanulok = Adatbaziskezelo.Tan_beolvas();
+            datagridview_megjelenit_tanulo();
+            listview_megjelenit_tanulo();
         }
 
         private void button2_Click(object sender, EventArgs e)
