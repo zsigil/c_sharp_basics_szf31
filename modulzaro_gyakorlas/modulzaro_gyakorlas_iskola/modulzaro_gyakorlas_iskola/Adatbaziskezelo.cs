@@ -122,6 +122,42 @@ namespace modulzaro_gyakorlas_iskola
             }
         }
 
+
+        public static List<Iskola> Isk_beolvas_abcben()
+        {
+            List<Iskola> eredmeny2 = new List<Iskola>();
+
+            try
+            {
+                string sql = "select * from iskola order by isk_neve";
+                comm = new SqlCommand(sql, conn);
+
+                SqlDataReader reader = comm.ExecuteReader();
+
+
+                //tábla sorainak beolvasása(ha elfogy, false-t dob vissza)
+                while (reader.Read())
+                {
+                    eredmeny2.Add(new Iskola(
+                        reader["isk_azon"].ToString(),
+                        reader["isk_neve"].ToString(),
+                        reader["isk_varos"].ToString(),
+                        reader["isk_irszam"].ToString(),
+                        reader["isk_utca"].ToString(),
+                        reader["isk_tel"].ToString()
+                        ));
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            return eredmeny2;
+        }
+
         //TANULÓK
 
         public static List<Tanulo> Tan_beolvas()

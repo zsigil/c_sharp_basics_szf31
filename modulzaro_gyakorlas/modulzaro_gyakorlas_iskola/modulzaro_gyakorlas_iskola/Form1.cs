@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iras_txtbe;
 
 namespace modulzaro_gyakorlas_iskola
 {
@@ -136,6 +137,28 @@ namespace modulzaro_gyakorlas_iskola
             return eletkor;
         }
 
+        string iskolak_abcben()
+        {
+            List<Iskola> iskolak2 = Adatbaziskezelo.Isk_beolvas_abcben();
+            string mystring = "";
+            foreach (var item in iskolak2)
+            {
+                
+                mystring += item.Nev.ToString();
+                mystring += ';';
+                mystring += item.Azon.ToString();
+                mystring += ';';
+                mystring += item.Varos.ToString();
+                mystring += item.Irszam.ToString();
+                mystring += item.Utca.ToString();
+                mystring += ';';
+                mystring += item.Telszam.ToString();
+                mystring += "\t";
+
+            }
+            return mystring;
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -235,8 +258,13 @@ namespace modulzaro_gyakorlas_iskola
 
             textBox17.Text = eletkor_szamitasa(tanulo).ToString();
 
- 
-
+        }
+        //iskola txtbe
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string mypath = @"F:\szf31\csharp\csharp_programjaim\modulzaro_gyakorlas\iskolak.txt";
+            string iskolak_abc = iskolak_abcben();
+            iras_txtbe.Class1.txtbe_irom(mypath, iskolak_abc);
         }
     }
 }

@@ -118,5 +118,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iras_txtbe\iras_txtbe.csproj">
+      <Project>{7fe0399f-d68b-4cd0-ba30-2306bc06fd77}</Project>
+      <Name>iras_txtbe</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

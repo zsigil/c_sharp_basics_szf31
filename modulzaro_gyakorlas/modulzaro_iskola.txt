@@ -131,4 +131,24 @@ https://github.com/zsigil/c_sharp_basics_szf31/blob/master/20181028/oop_db_kezel
 *******************************
 
 ösztöndíj számolása:
-új button, kijelzés textboxban
+új button, kijelzés textboxban 
+var melyikindex = dataGridView1.CurrentCell.RowIndex;
+            tanulo = tanulok[melyikindex];
+
+********************************
+
+txt -készítése
+gomb a formon
+DLL: solution exploreren jobb egérgomb: add-new project-class library(.net framework)
+fõ projekten joo e-> add reference!
+form1.cs-ben using [dll file neve]
+
+dll file classban:
+using System.io
+
+- tanulok2 lista lekérdezése abcben (adatbkezelõben)
+-foreach-csel minden item összes adattagját stringgé alakítva összefûzni
+-path és text megy be a txt nyomtatásánál(dll-ben külön)
+
+*******************************
+
