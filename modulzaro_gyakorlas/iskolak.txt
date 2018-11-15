@@ -1,1 +1,5 @@
-Kis Pagony Ált Isk;abcdef5;iassszonyfalva7240Béka u 10.;23/123-456	Kossuth Lajos Ált Isk;abcdef3;Budapest1113Karaván u 3.;1/1234-456	Nagy Pagony Ált Isk;abcdef4;Bugyi5063Kutya u 5.;42/123-456	Petofi Sándor Ált Isk;abcdef2;Gödöllo2100Levendula u 3.;28/123-456	
+Kis Pagony Ált Isk;abcdef5;iassszonyfalva7240Béka u 10.;23/123-456
+Kossuth Lajos Ált Isk;abcdef3;Budapest1113Karaván u 3.;1/1234-456
+Nagy Pagony Ált Isk;abcdef4;Bugyi5063Kutya u 5.;42/123-456
+Petofi Sándor Ált Isk;abcdef2;Gödöllo2100Levendula u 3.;28/123-456
+

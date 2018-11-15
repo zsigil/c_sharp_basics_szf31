@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using iras_txtbe;
+using iskolak_csvbe; //tanulók lesznek, nem iskolák
 
 namespace modulzaro_gyakorlas_iskola
 {
@@ -153,9 +154,39 @@ namespace modulzaro_gyakorlas_iskola
                 mystring += item.Utca.ToString();
                 mystring += ';';
                 mystring += item.Telszam.ToString();
-                mystring += "\t";
+                mystring += "\n";
 
             }
+            return mystring;
+        }
+
+        string tanulok_abcben()
+        {
+            List<Tanulo> tanulok3 = Adatbaziskezelo.Tan_beolvas_abcben();
+            string mystring = "";
+            foreach (var item in tanulok3)
+            {
+
+                mystring += item.Nev.ToString();
+                mystring += ';';
+                mystring += item.Azon.ToString();
+                mystring += ';';
+                mystring += item.Szul.ToString();
+                mystring += ';';
+                mystring += item.Varos.ToString();
+                mystring += ';';
+                mystring += item.Irszam.ToString();
+                mystring += ';';
+                mystring += item.Utca.ToString();
+                mystring += ';';
+                mystring += item.Anyjaneve.ToString();
+                mystring += ';';
+                mystring += item.Osztaly.ToString();
+                mystring += ';';
+                mystring += (item.Atlag.ToString() + '\n');
+
+            }
+
             return mystring;
         }
 
@@ -265,6 +296,13 @@ namespace modulzaro_gyakorlas_iskola
             string mypath = @"F:\szf31\csharp\csharp_programjaim\modulzaro_gyakorlas\iskolak.txt";
             string iskolak_abc = iskolak_abcben();
             iras_txtbe.Class1.txtbe_irom(mypath, iskolak_abc);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string mypath = @"F:\szf31\csharp\csharp_programjaim\modulzaro_gyakorlas\tanulok.csv";
+            string tanulok_abc = tanulok_abcben();
+            iskolak_csvbe.Class1.csvbe_irom(mypath, tanulok_abc);
         }
     }
 }

@@ -123,6 +123,10 @@
       <Project>{7fe0399f-d68b-4cd0-ba30-2306bc06fd77}</Project>
       <Name>iras_txtbe</Name>
     </ProjectReference>
+    <ProjectReference Include="..\iskolak_csvbe\iskolak_csvbe.csproj">
+      <Project>{29b1f56a-ef2a-4398-883f-06a0f621b43a}</Project>
+      <Name>iskolak_csvbe</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

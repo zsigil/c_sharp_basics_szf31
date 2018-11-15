@@ -33,7 +33,7 @@ namespace modulzaro_gyakorlas_iskola
             {
                 conn.Close();
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
@@ -185,7 +185,7 @@ namespace modulzaro_gyakorlas_iskola
                         reader["tan_anyjaneve"].ToString(),
                         reader["tan_oszt"].ToString(),
                         float.Parse(reader["tan_atlag"].ToString())
-        
+
                         ));
                 }
 
@@ -265,5 +265,44 @@ namespace modulzaro_gyakorlas_iskola
                 MessageBox.Show(e.Message);
             }
         }
-    }
+
+        public static List<Tanulo> Tan_beolvas_abcben()
+        {
+            List<Tanulo> eredmeny3 = new List<Tanulo>();
+
+            try
+            {
+                string sql = "select * from tanulo order by tan_nev;";
+                comm = new SqlCommand(sql, conn);
+
+                SqlDataReader reader = comm.ExecuteReader();
+
+
+                //tábla sorainak beolvasása(ha elfogy, false-t dob vissza)
+                while (reader.Read())
+                {
+                    eredmeny3.Add(new Tanulo(
+                        reader["tan_azon"].ToString(),
+                        reader["tan_nev"].ToString(),
+                        reader["tan_szul"].ToString(),
+                        reader["tan_varos"].ToString(),
+                        reader["tan_irszam"].ToString(),
+                        reader["tan_utca"].ToString(),
+                        reader["tan_anyjaneve"].ToString(),
+                        reader["tan_oszt"].ToString(),
+                        float.Parse(reader["tan_atlag"].ToString())
+
+                        ));
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            return eredmeny3;
+        }
+    } 
 }

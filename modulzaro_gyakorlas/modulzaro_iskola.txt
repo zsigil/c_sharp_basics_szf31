@@ -146,9 +146,16 @@ form1.cs-ben using [dll file neve]
 dll file classban:
 using System.io
 
-- tanulok2 lista lekérdezése abcben (adatbkezelõben)
+- iskolak2 lista lekérdezése abcben (adatbkezelõben)
 -foreach-csel minden item összes adattagját stringgé alakítva összefûzni
 -path és text megy be a txt nyomtatásánál(dll-ben külön)
 
 *******************************
+
+csv készítése
+gomb a formon
+DLL
+-tanulok2 lista lekérdezése abcben adatbkezelõben(sql parancs vált)
+minden ugyanaz, mint iskola
+ugyanúgy
 
