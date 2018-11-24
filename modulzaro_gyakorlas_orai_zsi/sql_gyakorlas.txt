@@ -1,0 +1,27 @@
+--tábla létrehozás sql utasításai
+
+create table iskola(
+iskola_id int not null primary key,
+iskola_neve varchar(50) not null,
+iskola_cime varchar(50), 
+iskola_telefonszama varchar(50)
+);
+
+create table tanulo(
+tanulo_id int not null primary key,
+tanulo_neve varchar(100) not null,
+tanulo_szul_datum date,
+tanulo_cime varchar(50),
+tanulo_anyja_neve varchar(50),
+tanulo_osztaly varchar(10),
+tanulo_atlaga real,
+iskola_azon int,
+constraint FK_tanulo_iskola foreign key (iskola_azon) references iskola(iskola_id)
+);
+
+
+insert into iskola values (1, 'Jó iskola', 'Bp. Valami u 2', '1234656')
+insert into iskola values (2, 'Nagyon jó iskola', 'Bp, Izé u 5', '4564336')
+
+insert into tanulo values (1, 'Kiss Béla', '1980.01.01',  'Bp, kis u 2', 'Nagy Mari', '2.c', '4.2', 1)
+insert into tanulo values (2, 'Nagy Béla', '1981.01.01',  'Bp, Nagy u 2', 'Kis Mari', '3.d', '3.2', 2)
